@@ -32,6 +32,8 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('role_id')->default(\App\Role::STUDENT);
             $table->foreign('role_id')->references('id')->on('roles'); // Relacion con la tabla roles
             $table->string('name');
+            $table->string('last_name')->nullable();
+            $table->string('slug');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -85,9 +87,9 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
         Schema::dropIfExists('roles');
         Schema::dropIfExists('subscriptions');
         Schema::dropIfExists('user_social_accounts');
+        Schema::dropIfExists('users');
     }
 }
