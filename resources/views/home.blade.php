@@ -1,23 +1,32 @@
 @extends('layouts.app')
 
+@section('jumbotron')
+    @include('partials.jumbotron', [
+        "title" => __("Accede ahora mismo a cualquier curso"),
+        "description" => __("Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia optio,  ab fugit sit sunt               repudiandae dicta tempore distinctio repellat debitis ipsum laudantium quibusdam maiores nisi!"),
+        "icon" => "th"
+    ])
+@endsection
+
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+            @forelse ($courses as $course)
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                @include('partials.courses.card_course')
 
-                    You are logged in!
-                </div>
+            @empty
+            <div class="alert alert-dark">
+                <h2>{{ __("No hay cursos disponibles") }}</h2>
             </div>
+            @endforelse
+
         </div>
+    </div>
+
+    <div class="row justify-content-center">
+        {{ $courses->links() }}
     </div>
 </div>
 @endsection

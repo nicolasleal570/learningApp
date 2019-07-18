@@ -18,15 +18,18 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- FONT AWESOME --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     
     @include('partials.navigation')
 
-    <div id="app">
-        
+    @yield('jumbotron')
 
-        <main class="py-4">
+    <div id="app">
+        <main class="">
 
             @if (session('message'))
                 <div class="row justify-content-center">

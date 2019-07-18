@@ -47,6 +47,10 @@ class Course extends Model
     const PENDING = 2;
     const REJECTED = 3;
 
+    public function pathAttachment(){
+        return "/images/courses/" . $this->picture;
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class)->select('id', 'name');
@@ -80,6 +84,11 @@ class Course extends Model
     public function teacher()
     {
         return $this->belongsTo(Teacher::class);
+    }
+
+    public function getCustomRatingAttribute()
+    {
+        return $this->reviews->avg('rating');
     }
 
 }
