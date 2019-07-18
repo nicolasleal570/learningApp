@@ -21,6 +21,8 @@
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
+                    
+                    @include('partials.navigations.' . \App\User::navigation())
 
                 </ul>
             </div>

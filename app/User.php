@@ -90,6 +90,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * CONTROLANDO LA BARRA DE NAVEGACION SEGUN EL ROL DE USUARIO
+     */
+    public static function navigation()
+    {
+        return auth()->check() ? auth()->user()->role->name : 'guess';
+    }
+
     public function role()
     {
         return $this->belongsTo(Role::class);
