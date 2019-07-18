@@ -23,7 +23,7 @@ $factory->define(User::class, function (Faker $faker) {
         'name' => $name,
         'role_id' => \App\Role::all()->random()->id,
         'last_name' => $last_name,
-        'slug' => str_slug($name .''. $last_name, '-'),
+        'slug' => str_slug($name .' '. $last_name, '-'),
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => bcrypt('password'), // password
