@@ -17,7 +17,7 @@
             <hr>
             <small class="text-muted">{{ $course->created_at->diffForHumans() }}</small> <span class="badge badge-primary">{{ $course->category->name }}</span>
             <p> {{ str_limit($course->description, 100) }} </p>
-            <a href="#" class="btn btn-primary btn-sm mt-3"> {{ __("Leer más")}} </a>
+            <a href="{{ route('courses.detail', $course->slug) }}" class="btn btn-primary btn-block btn-sm mt-3 py-2"> {{ __("Leer más")}} </a>
         </div>
 
     </div>

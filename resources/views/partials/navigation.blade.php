@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
 
-            <a class="navbar-brand" href="#">{{ config('app.name') }}</a>
+        <a class="navbar-brand" href="{{ route('home') }}">{{ config('app.name') }}</a>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
